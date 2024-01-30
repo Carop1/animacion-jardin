@@ -1,34 +1,59 @@
 *{
     margin: 0;
     padding: 0;
-}
-.fondo{
     
-    width: 100%;
-    height: 100%;
 }
-.nube{
-    width: 350px;
+div#anim{
+    background: url('../images/fondo.png') no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+#nube{
+    background-image: url('../images/nube.png');
+    background-size: cover;
+    width: 400px;
+    height: 130px;
     position: absolute;
     top: 20px;
     right: 0px;
     transition: transform 1s ease-in-out;
     animation-name: moverNube;
+    animation-delay: 11s;
     animation-duration: 12s;
     opacity: 0;
+    animation-fill-mode: forwards;
 }
-.lluvia{
+#lluvia{
+    background: url('../images/lluvia.png');
+    
     width: 200px;
+    height: 800px;
     position: absolute;
-    top: 60px;
-    right: 650px;
+    top: 50px;
+    right: 100px;
     /* animation: lluviaCayendo 0.2s linear infinite; */
     opacity: 0;
     animation-name: lluviaCayendo;
+    animation-delay: 11s;
     transition: transform 1s ease-in-out;
     animation-duration: 12s;
+    transition: height 1s linear 0.2s;
     /* background: url('images/lluvia.png') repeat; */
     
+}
+#mensajes{
+    background: url('../images/letrero.png');
+    background-size: cover;
+    width: 350px;
+    height: 100px;
+    position: absolute;
+    top: 200px;
+    right: 800px;
+    background-position-y: 90%;
+    /* animation-name: mensajeInicial; */
+    /* animation-duration: 8s; */
+    /* transition: height 5s linear 0.2s; */
 }
 @keyframes moverNube{
 
@@ -39,7 +64,16 @@
         transform: translateX(-75vh);
         opacity: 1;
     }
+    66%,80%{
+        opacity: 1;
+    }
+    85%{
+        transform: translateX(-150vh);
+    }
     
+    86%{
+        opacity: 0;
+    }
 }
 @-webkit-keyframes moverNube{
     
@@ -52,17 +86,28 @@
     }
 }
 @keyframes lluviaCayendo{
-    0%,44%{
+    0%,40%{
         opacity: 0;
         transform: translateY(0);
     }
-    45%,55%{
+    40%,80%{
         opacity: 1;
-        transform: translateY(50px);
+        transform: translateY(1000px);
          
     }
-    56%,100%{
+    
+    85%,100%{
         opacity: 0;
-        transform: translateY(0);
     }
 }
+@keyframes mensajeInicial{
+    0%,25%{
+    background-position-y: 25%;
+    opacity:0;
+    }
+    25%,50%{
+    background-position-y: 50%;
+    opacity:0;
+    }
+}
+ 
